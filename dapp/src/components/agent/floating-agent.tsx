@@ -371,6 +371,24 @@ export function FloatingAgent() {
     handlePowerToggle();
   };
 
+  /* ── Listen for Tutorial Events to Hide Mascot ── */
+  const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
+    const onTutorialStart = () => setIsHidden(true);
+    const onTutorialEnd = () => setIsHidden(false);
+
+    window.addEventListener('timelock-start-tutorial', onTutorialStart);
+    window.addEventListener('timelock-end-tutorial', onTutorialEnd);
+
+    return () => {
+      window.removeEventListener('timelock-start-tutorial', onTutorialStart);
+      window.removeEventListener('timelock-end-tutorial', onTutorialEnd);
+    };
+  }, []);
+
+  if (isHidden) return null;
+
   return (
     <Draggable
       nodeRef={nodeRef as React.RefObject<HTMLElement>}

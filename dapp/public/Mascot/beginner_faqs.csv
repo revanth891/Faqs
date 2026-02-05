@@ -1,0 +1,227 @@
+Question,Answer,Tag
+"what is defi?","DeFi = Decentralized Finance. 
+    
+    basically, money lego blocks without the suits. no banks, no managers, just code and chaos.",basics
+"what is a smart contract?","it's a robot that keeps its promises.
+    
+    unlike your ex, once this code is deployed, it does exactly what it says. no takebacks.",basics
+"what is an amm?","Automated Market Maker.
+    
+    it's a vending machine for tokens. you put money in, you get tokens out. math determines the price, not a guy on a trading floor.",mechanics
+"what is a liquidity pool?","a big pile of money that makes trading possible.
+    
+    think of it as the cash register. people put tokens in so others can swap. if the pool is empty, the shop is closed.",mechanics
+"what is a token?","digital bragging rights.
+    
+    could be money, could be a picture of a dog, could be absolutely nothing. welcome to crypto.",basics
+"what is blockchain?","the receipt that never fades.
+    
+    a public list of who sent what to whom. everyone has a copy, so you can't fake it.",basics
+"what does decentralized mean?","no boss key.
+    
+    nobody can shut it down, nobody can freeze your account (mostly). it's the wild west, baby.",basics
+"what is a dex?","Decentralized Exchange.
+    
+    like the NYSE but run by code and accessible in your underwear. uniswap is the king here.",basics
+"what is supply?","how many slices of the pizza exist.
+    
+    if supply is huge, price is usually small (unless you're shib). know your math.",basics
+"what is market cap?","price x supply. the only number that actually matters.
+    
+    don't look at ""cheap"" price per token. look at how much the whole bag is worth.",basics
+"how do i launch a memecoin?","1. click launch.
+    2. name your child.
+    3. pay gas.
+    
+    congrats, you're a dev now. don't rug us.",guide
+"can anyone create a memecoin?","literally anyone.
+    
+    your grandma, your dog, that guy from high school. permissionless means PERMISSIONLESS.",guide
+"do i need coding skills?","nope. if you can click buttons, you can deploy.
+    
+    we handle the spaghetti code; you handle the memes.",guide
+"how long does it take?","faster than heating a hot pocket.
+    
+    block times are fast. seconds, maybe minutes if congested.",guide
+"can i change details later?","nope. immutable means forever.
+    
+    check your spelling. ""dige"" instead of ""doge"" is forever.",guide
+"can i launch multiple tokens?","go crazy. launch a zoo.
+    
+    just remember quality > quantity (usually).",guide
+"what makes a good name?","make me laugh or make me money.
+    
+    catchy, memeable, slightly offensive? usually wins.",guide
+"can i add utility later?","sure, but let's be real—the meme IS the utility.",guide
+"do i control the token?","you launched it, but the market owns it now.
+    
+    renounced ownership is the way. don't be a controlling dev.",safety
+"what happens after launch?","chaos.
+    
+    liquidity activates, bots snipe, chart goes brrr (or nukes). enjoy the ride.",mechanics
+"how do i buy?","connect wallet -> pick coin -> swap.
+    
+    if you can order food online, you can lose money on chain.",guide
+"how do i sell?","same thing but backwards.
+    
+    swap token -> usdc/eth. paper handing? shame.",guide
+"can i trade 24/7?","crypto never sleeps.
+    
+    markets remain open while you ruin your sleep schedule staring at charts.",guide
+"why do prices move so fast?","low liquidity + high hype = giga volatility.
+    
+    welcome to the thunderdome. blinking is expensive.",mechanics
+"what is slippage?","the ""i don't care, just buy it"" tax.
+    
+    price changes while your transaction confirms. high slippage = you pay whatever price to get in.",mechanics
+"what is volume?","how loud the party is.
+    
+    high volume = everyone is trading. low volume = crickets.",mechanics
+"what is price impact?","how fat your splash is.
+    
+    if you buy 50% of the supply, price goes to mars. don't wreck yourself.",mechanics
+"why did my trade fail?","probably slippage too low or you're broke (no gas).
+    
+    increase slippage or top up your eth/sol.",guide
+"what is swapping?","trading one magic bean for another.",basics
+"can i cancel a trade?","once it's on chain, it's god's plan.
+    
+    no customer support line here.",guide
+"what is a wallet?","your digital backpack. holds your coins, nfts, and bad decisions.",tools
+"do i need one?","yes. no wallet, no crypto.
+    
+    metamask, rainbow, rabby, phantom - pick your weapon.",tools
+"are wallets safe?","as safe as you are smart.
+    
+    click a bad link? dry. keep your seed phrase offline? safe.",safety
+"what is a private key?","the master password.
+    
+    shows access to everything. never share it. ever. not even with ""support"".",safety
+"what is a seed phrase?","12-24 words that save your life if you lose your phone.
+    
+    write it on paper. put it in a safe. tattoo it on your dog (don't do that).",safety
+"what if i lose my seed phrase?","F.
+    
+    game over. money gone. sorry bro.",safety
+"does the platform hold my funds?","nope. self-custody.
+    
+    your keys, your coins. we just provide the interface.",safety
+"is there KYC?","lol. no.
+    
+    we don't want your ID. keep it anonymous.",tools
+"are memecoins risky?","is swimming with sharks risky?
+    
+    yes. you can lose everything. only bet what you can light on fire.",safety
+"can prices crash?","faster than gravity.
+    
+    -99% is a rite of passage.",safety
+"what is a rug pull?","when the dev drains the pool and buys a lambo.
+    
+    at timelock, we auto-lock liquidity so devs CAN'T rug standard pools. you're welcome.",safety
+"can hype die?","attention spans are short.
+    
+    if the timeline stops posting about it, it's probably dead.",slang
+"should i invest my life savings?","NO.
+    
+    go to a casino if you want to ruin your life. this is for fun money.",safety
+"are scams common?","everywhere.
+    
+    if a hot girl DMs you about crypto, it's a dude in a basement. block them.",safety
+"can whales wreck me?","yes.
+    
+    if moby dick decides to sell, you're gonna feel the splash.",mechanics
+"why do memes matter?","memes control the world.
+    
+    elon tweets, doge pumps. vibes > fundamentals.",slang
+"what is ""aping in""?","buying without thinking.
+    
+    monke see, monke do, monke buy.",slang
+"wen moon?","when the green candle goes vertical.
+    
+    the target destination for every bagholder.",slang
+"what are diamond hands?","holding while your portfolio is -50%.
+    
+    conviction or delusion? fine line.",slang
+"what are paper hands?","selling at the first sign of trouble.
+    
+    ngmi (not gonna make it).",slang
+"what is FOMO?","fear of missing out.
+    
+    buying the top because your friends are getting rich. usually ends poorly.",slang
+"what is GM?","good morning.
+    
+    say it back. it's civilization.",slang
+"what is shilling?","""bro trust me it's the next pepe"".
+    
+    begging people to buy your bags.",slang
+"why do communities matter?","strength in numbers.
+    
+    a coin with no community is just a dead smart contract.",slang
+"what makes a meme viral?","magic. timing. resonance.
+    
+    and usually a cute animal or wojak.",slang
+"why does liquidity matter?","thicc liquidity = stable price.
+    thin liquidity = rollercoaster.",mechanics
+"what happens with low liquidity?","you try to sell $100 and price dumps 50%.
+    
+    it's bad.",mechanics
+"what affects price?","buyers vs sellers.
+    
+    more buying -> higher price. more selling -> lower price. simple economics.",mechanics
+"why buy early?","bond curves favor the brave (and the early).
+    
+    get in before the masses.",alpha
+"what is price discovery?","market figuring out what this jpeg is worth.
+    
+    usually volatile at start.",mechanics
+"can price be manipulated?","in low liquidity? yes.
+    
+    watch out for wash trading (fake volume).",safety
+"what is volatility?","the heart attack factor.
+    
+    how much the price swings up and down.",mechanics
+"what are whales?","guys with big bags.
+    
+    they move the market. follow their tail or get crushed.",slang
+"what is circulating supply?","tokens actually in hands.
+    
+    burned tokens don't count. locked tokens don't count (yet).",mechanics
+"do i need an account?","no. connect wallet and go.
+    
+    web3 baby.",guide
+"can i explore trending?","yeah, check the leaderboard.
+    
+    follow the heat ",guide
+"are transactions instant?","blockchain speed.
+    
+    usually fast, sometimes lags if network is clogged.",mechanics
+"is everything on chain?","yup. public ledger.
+    
+    everyone can see you bought ""cumrocket"" at the top.",privacy
+"can i trade on mobile?","if your wallet works on mobile, yes.
+    
+    trade from the toilet. living the dream.",tools
+"what is tokenomics?","the economic rules of the coin.
+    
+    how many? who gets them? inflation? deflation?",alpha
+"what is an LP token?","receipt for providing liquidity.
+    
+    proves you own a piece of the pool. earn fees with it.",alpha
+"what is impermanent loss?","the confusing way you lose money by providing liquidity.
+    
+    basically: if token moons, you might have made more just holding.",alpha
+"what is staking?","internet interest.
+    
+    lock tokens, get more tokens.",alpha
+"what is a governance token?","voting rights.
+    
+    decide the future of the protocol (usually).",alpha
+"what is burning?","sending tokens to token heaven.
+    
+    destroys them forever. reduces supply. usually good for price.",alpha
+"what is minting?","printing money.
+    
+    creating new tokens from thin air.",alpha
+"what is a whitelist?","the VIP list.
+    
+    only cool kids get in early. usually sold or won.",alpha

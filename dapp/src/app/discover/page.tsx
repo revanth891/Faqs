@@ -1,21 +1,22 @@
 'use client';
 
-import type {Address} from 'viem';
-import {useState, useEffect, useMemo} from 'react';
-import {useInView} from 'react-intersection-observer';
-import {useBlockNumber} from 'wagmi';
+import type { Address } from 'viem';
+import { useState, useEffect, useMemo } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useBlockNumber } from 'wagmi';
 import Link from 'next/link';
-import {Loader2} from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import {
   DiscoverTokenCard,
   DiscoverTokenCardSkeleton,
 } from './discover-token-card';
-import {Container} from '~/components/layout/container';
-import {Button} from '~/components/ui/button';
-import {Input} from '~/components/ui/input';
-import {useInfiniteTokens} from '~/hooks/use-tokens';
+import { Container } from '~/components/layout/container';
+import { Button } from '~/components/ui/button';
+import { Input } from '~/components/ui/input';
+import { useInfiniteTokens } from '~/hooks/use-tokens';
+import { TutorialOverlay } from '~/components/discovery/tutorial-overlay';
 
-import type {GetTokensQuery} from '~/graphql/generated';
+import type { GetTokensQuery } from '~/graphql/generated';
 
 type Token = GetTokensQuery['Launchpad_TokenLaunched'][number];
 type AuctionPhase = 'all' | 'live' | 'upcoming' | 'trading';
@@ -28,10 +29,10 @@ interface TokenFilters {
 }
 
 const FILTERS = [
-  {id: 'all', label: 'all'},
-  {id: 'live', label: 'live'},
-  {id: 'upcoming', label: 'upcoming'},
-  {id: 'trading', label: 'trading'},
+  { id: 'all', label: 'all' },
+  { id: 'live', label: 'live' },
+  { id: 'upcoming', label: 'upcoming' },
+  { id: 'trading', label: 'trading' },
 ] as const;
 
 function getTokenPhase(
@@ -52,8 +53,8 @@ function getTokenPhase(
 }
 
 export default function DiscoverPage() {
-  const {ref, inView} = useInView();
-  const {data: currentBlock = 0n} = useBlockNumber({watch: true});
+  const { ref, inView } = useInView();
+  const { data: currentBlock = 0n } = useBlockNumber({ watch: true });
 
   const [filters, setFilters] = useState<TokenFilters>({
     search: '',
@@ -127,24 +128,36 @@ export default function DiscoverPage() {
 
   return (
     <div className="min-h-screen">
+      <TutorialOverlay />
       {/* Header */}
       <div className="border-b border-border">
         <Container>
           <div className="py-8">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-6" id="tour-header">
               <div>
                 <div className="text-dim text-sm mb-2">
                   ~/timelock <span className="text-green">$</span> ls tokens/
                 </div>
                 <h1 className="text-2xl font-bold">discover</h1>
               </div>
-              <Button asChild>
-                <Link href="/launch">launch token</Link>
-              </Button>
+              <div className="flex gap-2">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => window.dispatchEvent(new Event('timelock-start-tutorial'))}
+                  title="replay tutorial"
+                  className="text-dim hover:text-green hover:border-green"
+                >
+                  <span className="text-lg">?</span>
+                </Button>
+                <Button asChild id="tour-launch-btn">
+                  <Link href="/launch">launch token</Link>
+                </Button>
+              </div>
             </div>
 
             {/* Filters */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2" id="tour-filters">
               {FILTERS.map(filter => {
                 const count =
                   phaseCounts[filter.id as keyof typeof phaseCounts];
@@ -180,15 +193,17 @@ export default function DiscoverPage() {
           {/* Search & sort */}
           <div className="flex flex-col sm:flex-row gap-3 mb-6">
             <Input
+              id="tour-search"
               type="text"
               placeholder="search..."
               value={filters.search}
               onChange={e =>
-                setFilters(prev => ({...prev, search: e.target.value}))
+                setFilters(prev => ({ ...prev, search: e.target.value }))
               }
               className="flex-1 h-10 px-4 bg-card"
             />
             <select
+              id="tour-sort"
               value={filters.sortBy}
               onChange={e =>
                 setFilters(prev => ({
@@ -210,7 +225,7 @@ export default function DiscoverPage() {
               <Button
                 variant="link"
                 size="sm"
-                onClick={() => setFilters(prev => ({...prev, search: ''}))}
+                onClick={() => setFilters(prev => ({ ...prev, search: '' }))}
                 className="ml-4"
               >
                 clear
@@ -236,7 +251,7 @@ export default function DiscoverPage() {
 
           {/* Loading state */}
           {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="tour-grid">
               {[...Array(6)].map((_, i) => (
                 <DiscoverTokenCardSkeleton key={i} />
               ))}
@@ -244,7 +259,7 @@ export default function DiscoverPage() {
           ) : (
             <>
               {/* Token grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="tour-grid">
                 {filteredTokens.map(token => (
                   <DiscoverTokenCard
                     key={token.id}
