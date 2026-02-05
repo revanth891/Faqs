@@ -1,0 +1,91 @@
+Category,Question,Answer
+DeFi Basics,What is DeFi?,DeFi stands for Decentralized Finance. It means financial tools like trading and lending run on blockchain instead of banks.
+DeFi Basics,What is a smart contract?,A smart contract is code on the blockchain that automatically runs rules without human control.
+DeFi Basics,What is an AMM?,An Automated Market Maker lets you trade tokens using liquidity pools instead of matching buyers and sellers.
+DeFi Basics,What is a liquidity pool?,A liquidity pool is a shared pool of tokens that allows instant trading.
+DeFi Basics,What is a token?,"A token is a digital asset built on a blockchain that can represent value, ownership, or access."
+DeFi Basics,What is blockchain?,Blockchain is a public digital ledger that records transactions permanently.
+DeFi Basics,What does decentralized mean?,Decentralized means no single company or authority controls the system.
+DeFi Basics,What is a DEX?,A DEX is a decentralized exchange where users trade directly from their wallets.
+DeFi Basics,What is supply?,Supply is the total number of tokens that exist.
+DeFi Basics,What is market cap?,Market cap is token price multiplied by total supply.
+Launching,How do I launch a memecoin?,"Pick a name, ticker, logo, and settings, then deploy the token through the platform."
+Launching,Can anyone create a memecoin?,Yes. No permission or approval is needed.
+Launching,Do I need technical skills to launch?,No coding or blockchain knowledge is required.
+Launching,How long does token launch take?,Usually a few seconds to a few minutes depending on network speed.
+Launching,Can I change token details later?,No. Token details are permanent after deployment.
+Launching,Can I launch multiple tokens?,"Yes, you can create multiple tokens if you want."
+Launching,What makes a good token name?,"Simple, catchy, meme-worthy names often attract attention."
+Launching,Can I add token utility later?,"Yes, but it depends on how the token and project evolve."
+Launching,Do I control the token after launch?,"You may hold tokens, but trading remains open and public."
+Launching,What happens right after launch?,Liquidity gets initialized and trading becomes available instantly.
+Trading,How do I buy memecoins?,"Connect your wallet, select a token, and swap using the platform."
+Trading,How do I sell memecoins?,Choose the token in your wallet and swap it back into the base currency.
+Trading,Can I trade anytime?,"Yes, trading is available 24/7."
+Trading,Why do prices move fast?,Memecoins react quickly to buying pressure and social hype.
+Trading,What is slippage?,Slippage is price difference caused by fast price movement during trading.
+Trading,What is volume?,Volume shows how much trading activity a token has.
+Trading,What is price impact?,Price impact is how much your trade changes token price.
+Trading,Why did my trade fail?,"Trades may fail due to low liquidity, gas issues, or price movement."
+Trading,What is swapping?,Swapping means exchanging one token for another.
+Trading,Can I cancel a trade?,Blockchain trades cannot be canceled after confirmation.
+Wallets,What is a crypto wallet?,A wallet stores your tokens and lets you interact with blockchain apps.
+Wallets,Do I need a wallet to trade?,"Yes, wallets are required to hold and trade tokens."
+Wallets,Are wallets safe?,Wallets are safe if you protect your private keys and recovery phrase.
+Wallets,What is a private key?,A private key gives full control of your wallet and must be kept secret.
+Wallets,What is a seed phrase?,A seed phrase is a backup that recovers your wallet if lost.
+Wallets,Can I use multiple wallets?,"Yes, you can connect different wallets anytime."
+Wallets,What happens if I lose my seed phrase?,You permanently lose access to your funds.
+Wallets,Can the platform access my wallet?,"No, only you control wallet access."
+Wallets,Do wallets need KYC?,Most decentralized wallets do not require identity verification.
+Wallets,Can I disconnect my wallet?,"Yes, you can disconnect anytime."
+Risks,Are memecoins risky?,"Yes, they are highly volatile and speculative."
+Risks,Can token prices crash?,"Yes, memecoin prices can drop very quickly."
+Risks,What is rug pull risk?,A rug pull happens when creators abandon or drain liquidity.
+Risks,Can hype disappear?,"Yes, community hype can fade quickly affecting price."
+Risks,Should I invest my savings?,No. Only invest money you can afford to lose.
+Risks,Can tokens become worthless?,"Yes, some memecoins lose demand and value."
+Risks,Are scams common?,"Scams exist, so always research before buying."
+Risks,Is trading addictive?,Fast-moving markets can encourage impulsive decisions.
+Risks,Can whales affect price?,"Yes, large holders can cause big price swings."
+Risks,Can liquidity disappear?,"Yes, removing liquidity can reduce trading ability."
+Meme Culture,Why are memes important in crypto?,Memes drive community engagement and viral growth.
+Meme Culture,What does 'ape in' mean?,It means buying quickly without deep research.
+Meme Culture,What does 'moon' mean?,It means expecting price to increase massively.
+Meme Culture,What does 'diamond hands' mean?,Holding tokens through price drops.
+Meme Culture,What does 'paper hands' mean?,Selling quickly during volatility.
+Meme Culture,What does 'FOMO' mean?,Fear of missing out causing impulsive buying.
+Meme Culture,What does 'GM' mean?,A friendly greeting in crypto communities.
+Meme Culture,What is shilling?,Promoting a token to attract buyers.
+Meme Culture,Why do communities matter?,Strong communities help tokens stay active.
+Meme Culture,What makes memes go viral?,"Humor, relatability, and strong online sharing."
+Liquidity & Pricing,Why does liquidity matter?,Liquidity ensures tokens can be traded smoothly.
+Liquidity & Pricing,What happens with low liquidity?,Prices become unstable and trades may fail.
+Liquidity & Pricing,What affects token price?,"Buying demand, selling pressure, and liquidity size."
+Liquidity & Pricing,Why do early buyers benefit?,Bonding curves reward early support with lower prices.
+Liquidity & Pricing,What is price discovery?,Finding fair market price based on supply and demand.
+Liquidity & Pricing,Can price manipulation happen?,"Yes, especially in low liquidity tokens."
+Liquidity & Pricing,What is volatility?,Volatility means rapid price movement.
+Liquidity & Pricing,What is token distribution?,Distribution shows how tokens are spread among holders.
+Liquidity & Pricing,Why do whales matter?,Large holders influence price movements.
+Liquidity & Pricing,What is circulating supply?,Circulating supply is tokens available for trading.
+Platform Usage,Do I need an account?,"No sign-up is needed, only wallet connection."
+Platform Usage,Is the platform custodial?,"No, users always control their own tokens."
+Platform Usage,Can I explore trending tokens?,"Yes, the platform shows trending memecoins."
+Platform Usage,Can I share my token?,"Yes, sharing helps build community growth."
+Platform Usage,Are transactions instant?,Transactions confirm based on blockchain speed.
+Platform Usage,Can I track my trades?,"Yes, transactions are recorded publicly on blockchain."
+Platform Usage,Is the platform open to everyone?,"Yes, decentralized platforms are globally accessible."
+Platform Usage,What networks are supported?,Supported networks depend on platform integration.
+Platform Usage,Can I interact using mobile wallets?,"Yes, many wallets support mobile connections."
+Platform Usage,Can I trade anonymously?,Wallet-based systems usually allow pseudonymous trading.
+Advanced Basics,What is tokenomics?,"Tokenomics describes supply, distribution, and incentives of a token."
+Advanced Basics,What is LP token?,LP tokens represent your share in liquidity pools.
+Advanced Basics,What is impermanent loss?,Impermanent loss occurs when liquidity pool token prices change significantly.
+Advanced Basics,What is staking?,Staking means locking tokens to earn rewards.
+Advanced Basics,What is yield farming?,Yield farming means earning rewards by providing liquidity.
+Advanced Basics,What is governance token?,Governance tokens allow voting on project decisions.
+Advanced Basics,What is token burn?,Burning permanently removes tokens from supply.
+Advanced Basics,What is minting?,Minting creates new tokens.
+Advanced Basics,What is on-chain data?,On-chain data is publicly visible blockchain activity.
+Advanced Basics,What is a whitelist?,Whitelist restricts early participation to selected users.

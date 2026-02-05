@@ -1,0 +1,825 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TIMELOCK TERMINAL
+   Warp-inspired modern terminal aesthetic
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* FORCE MONOSPACE EVERYWHERE */
+  --font-sans:
+    var(--font-geist-mono), ui-monospace, 'SF Mono', Menlo, Monaco,
+    'Cascadia Code', monospace;
+  --font-mono:
+    var(--font-geist-mono), ui-monospace, 'SF Mono', Menlo, Monaco,
+    'Cascadia Code', monospace;
+
+  --color-terminal-green: var(--terminal-green);
+  --color-terminal-purple: var(--terminal-purple);
+  --color-terminal-yellow: var(--terminal-yellow);
+  --color-terminal-red: var(--terminal-red);
+  --color-terminal-dim: var(--terminal-dim);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--terminal-green);
+  --color-chart-2: var(--terminal-purple);
+  --color-chart-3: var(--terminal-yellow);
+  --color-chart-4: var(--terminal-red);
+  --color-chart-5: var(--terminal-dim);
+
+  /* No rounded corners - sharp pixels */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+}
+
+:root {
+  --radius: 0px;
+
+  /* Deep purple-tinted dark background */
+  --background: #0c0a10;
+  --foreground: #e0dce8;
+
+  --card: #0f0d14;
+  --card-foreground: #e0dce8;
+
+  --popover: #13101a;
+  --popover-foreground: #e0dce8;
+
+  /* Bright mint green */
+  --primary: #5fffb0;
+  --primary-foreground: #0c0a10;
+
+  --secondary: #1a1720;
+  --secondary-foreground: #e0dce8;
+
+  --muted: #1a1720;
+  --muted-foreground: #8a849a;
+
+  /* Bright lavender */
+  --accent: #d4c0f0;
+  --accent-foreground: #0c0a10;
+
+  --destructive: #ff6b6b;
+
+  --border: #2a2630;
+  --input: #1a1720;
+  --ring: #5fffb0;
+
+  /* Terminal palette - brighter for contrast */
+  --terminal-green: #5fffb0;
+  --terminal-purple: #d4c0f0;
+  --terminal-yellow: #ffe080;
+  --terminal-red: #ff6b6b;
+  --terminal-red-dark: #a04848;
+  --terminal-dim: #8a849a;
+}
+
+.dark {
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORCE MONOSPACE ON EVERYTHING
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  font-family:
+    var(--font-geist-mono), ui-monospace, 'SF Mono', Menlo, Monaco,
+    'Cascadia Code', monospace !important;
+}
+
+html {
+  font-family:
+    var(--font-geist-mono), ui-monospace, 'SF Mono', Menlo, Monaco,
+    'Cascadia Code', monospace !important;
+}
+
+body {
+  font-family:
+    var(--font-geist-mono), ui-monospace, 'SF Mono', Menlo, Monaco,
+    'Cascadia Code', monospace !important;
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings:
+    'liga' 0,
+    'calt' 0;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+::selection {
+  background: var(--terminal-green);
+  color: var(--background);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TERMINAL COMPONENTS - Simple, clean, no fancy borders
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.terminal-box,
+.terminal-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+/* Status indicator dot */
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 0;
+}
+
+.status-dot-pulse {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Progress bar */
+.terminal-progress {
+  height: 4px;
+  background: var(--border);
+}
+
+.terminal-progress-bar {
+  height: 100%;
+  background: var(--terminal-green);
+  transition: width 0.3s ease;
+}
+
+/* Badges */
+.terminal-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  padding: 2px 6px;
+  border: 1px solid;
+}
+
+.terminal-badge-upcoming {
+  color: var(--terminal-yellow);
+  border-color: var(--terminal-yellow);
+  background: transparent;
+}
+
+.terminal-badge-live {
+  color: var(--terminal-green);
+  border-color: var(--terminal-green);
+  background: transparent;
+}
+
+.terminal-badge-settling {
+  color: var(--terminal-purple);
+  border-color: var(--terminal-purple);
+  background: transparent;
+}
+
+.terminal-badge-completed {
+  color: var(--terminal-dim);
+  border-color: var(--terminal-dim);
+  background: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.blink {
+  animation: blink 1s step-end infinite;
+}
+
+.pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Collapsible */
+@keyframes slideDown {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    height: var(--radix-collapsible-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+.animate-slideDown {
+  animation: slideDown 200ms ease-out;
+}
+.animate-slideUp {
+  animation: slideUp 200ms ease-out;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.text-green {
+  color: var(--terminal-green);
+}
+.text-purple {
+  color: var(--terminal-purple);
+}
+.text-yellow {
+  color: var(--terminal-yellow);
+}
+.text-red {
+  color: var(--terminal-red);
+}
+.text-red-dark {
+  color: var(--terminal-red-dark);
+}
+.text-dim {
+  color: var(--terminal-dim);
+}
+
+.bg-green {
+  background: var(--terminal-green);
+}
+.bg-purple {
+  background: var(--terminal-purple);
+}
+.bg-yellow {
+  background: var(--terminal-yellow);
+}
+.bg-red {
+  background: var(--terminal-red);
+}
+
+.border-green {
+  border-color: var(--terminal-green);
+}
+.border-purple {
+  border-color: var(--terminal-purple);
+}
+.border-yellow {
+  border-color: var(--terminal-yellow);
+}
+.border-red {
+  border-color: var(--terminal-red);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TERMINAL CARD HOVER EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.terminal-card-hover {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* Scanline overlay on hover */
+.terminal-card-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(95, 255, 176, 0.02) 2px,
+    rgba(95, 255, 176, 0.02) 4px
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+
+.terminal-card-hover:hover::before {
+  opacity: 1;
+}
+
+.terminal-card-hover:hover {
+  border-color: var(--terminal-green);
+  box-shadow: 0 0 12px rgba(95, 255, 176, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Header bar highlight on hover */
+.terminal-header-hover {
+  transition: background 0.2s ease;
+}
+
+.terminal-card-hover:hover .terminal-header-hover {
+  background: rgba(95, 255, 176, 0.06);
+}
+
+/* Image overlay */
+.terminal-image-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-image-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(201, 176, 232, 0.18) 0%,
+    transparent 60%,
+    rgba(95, 255, 176, 0.12) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.terminal-card-hover:hover .terminal-image-hover::after {
+  opacity: 1;
+}
+
+/* Terminal cursor blink on hover */
+.terminal-cursor-hover {
+  position: relative;
+}
+
+.terminal-cursor-hover::after {
+  content: '_';
+  position: absolute;
+  opacity: 0;
+  color: var(--terminal-green);
+}
+
+.terminal-card-hover:hover .terminal-cursor-hover::after {
+  opacity: 1;
+  animation: blink 1s step-end infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TERMINAL BUTTON EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-slot='button'] {
+  position: relative;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+/* Scanline overlay on hover */
+[data-slot='button']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.04) 2px,
+    rgba(255, 255, 255, 0.04) 4px
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+[data-slot='button']:hover::before {
+  opacity: 1;
+}
+
+/* Gradient fill on hover */
+[data-slot='button']::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition:
+    transform 0.2s ease-out,
+    opacity 0.2s ease-out;
+}
+
+[data-slot='button']:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Default (green) button effects */
+[data-slot='button'][data-variant='default']::after {
+  background: linear-gradient(
+    90deg,
+    rgba(201, 176, 232, 0.1),
+    rgba(95, 255, 176, 0.25),
+    rgba(201, 176, 232, 0.1)
+  );
+}
+
+[data-slot='button'][data-variant='default']:hover {
+  transform: translateY(-1px);
+}
+
+[data-slot='button'][data-variant='default']:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Destructive (red) button effects */
+[data-slot='button'][data-variant='destructive']::after {
+  background: linear-gradient(
+    90deg,
+    rgba(201, 176, 232, 0.1),
+    rgba(255, 95, 95, 0.25),
+    rgba(201, 176, 232, 0.1)
+  );
+}
+
+[data-slot='button'][data-variant='destructive']:hover {
+  transform: translateY(-1px);
+}
+
+[data-slot='button'][data-variant='destructive']:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Outline & secondary button effects */
+[data-slot='button'][data-variant='outline']::after,
+[data-slot='button'][data-variant='secondary']::after {
+  background: linear-gradient(
+    90deg,
+    rgba(201, 176, 232, 0.1),
+    rgba(201, 176, 232, 0.18),
+    rgba(201, 176, 232, 0.1)
+  );
+}
+
+[data-slot='button'][data-variant='outline']:hover,
+[data-slot='button'][data-variant='secondary']:hover {
+  border-color: var(--terminal-purple);
+  transform: translateY(-1px);
+}
+
+[data-slot='button'][data-variant='outline']:active,
+[data-slot='button'][data-variant='secondary']:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Ghost button effects */
+[data-slot='button'][data-variant='ghost']::after {
+  background: linear-gradient(
+    90deg,
+    rgba(201, 176, 232, 0.08),
+    rgba(201, 176, 232, 0.15),
+    rgba(201, 176, 232, 0.08)
+  );
+}
+
+[data-slot='button'][data-variant='ghost']:hover {
+  background: rgba(201, 176, 232, 0.1);
+  transform: translateY(-1px);
+}
+
+[data-slot='button'][data-variant='ghost']:active {
+  transform: translateY(0) scale(0.98);
+  background: rgba(201, 176, 232, 0.15);
+}
+
+/* Link button effects */
+[data-slot='button'][data-variant='link']:hover {
+  text-shadow: 0 0 8px rgba(201, 176, 232, 0.5);
+}
+
+[data-slot='button'][data-variant='link']:active {
+  opacity: 0.8;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TERMINAL INPUT EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-slot='input'],
+[data-slot='textarea'] {
+  transition: border-color 0.2s ease !important;
+}
+
+[data-slot='input']:hover:not(:focus):not(:disabled),
+[data-slot='textarea']:hover:not(:focus):not(:disabled) {
+  border-color: var(--terminal-purple) !important;
+}
+
+[data-slot='input']:focus,
+[data-slot='textarea']:focus {
+  border-color: var(--terminal-green) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CRT MONITOR EFFECTS — Floating Agent
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Power-on animation: screen brightens from center */
+@keyframes crt-power-on {
+  0% {
+    clip-path: inset(50% 50% 50% 50%);
+    opacity: 0;
+    filter: brightness(3) saturate(0);
+  }
+  30% {
+    clip-path: inset(48% 0% 48% 0%);
+    opacity: 1;
+    filter: brightness(2) saturate(0);
+  }
+  60% {
+    clip-path: inset(0% 0% 0% 0%);
+    filter: brightness(1.5) saturate(0.5);
+  }
+  100% {
+    clip-path: inset(0% 0% 0% 0%);
+    opacity: 1;
+    filter: brightness(1) saturate(1);
+  }
+}
+
+/* Power-off: collapses to a horizontal line then dot */
+@keyframes crt-power-off {
+  0% {
+    clip-path: inset(0% 0% 0% 0%);
+    opacity: 1;
+    filter: brightness(1);
+  }
+  40% {
+    clip-path: inset(45% 0% 45% 0%);
+    opacity: 1;
+    filter: brightness(2) saturate(0);
+  }
+  80% {
+    clip-path: inset(49% 20% 49% 20%);
+    opacity: 0.8;
+    filter: brightness(3) saturate(0);
+  }
+  100% {
+    clip-path: inset(50% 50% 50% 50%);
+    opacity: 0;
+    filter: brightness(4) saturate(0);
+  }
+}
+
+.crt-power-on {
+  animation: crt-power-on 0.5s ease-out forwards;
+}
+
+.crt-power-off {
+  animation: crt-power-off 0.35s ease-in forwards;
+}
+
+/* Scanline overlay */
+.crt-scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Subtle screen flicker */
+@keyframes crt-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.97;
+  }
+  8% {
+    opacity: 1;
+  }
+  12% {
+    opacity: 0.98;
+  }
+  70% {
+    opacity: 1;
+  }
+  72% {
+    opacity: 0.96;
+  }
+  74% {
+    opacity: 1;
+  }
+}
+
+.crt-flicker {
+  animation: crt-flicker 4s infinite;
+}
+
+/* Phosphor glow on text inside the CRT */
+.crt-glow {
+  text-shadow:
+    0 0 4px rgba(95, 255, 176, 0.4),
+    0 0 8px rgba(95, 255, 176, 0.15);
+}
+
+/* Vignette: darkened edges for barrel-distortion feel */
+.crt-vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+  pointer-events: none;
+  z-index: 11;
+}
+
+/* Screen bezel */
+.crt-bezel {
+  border: 3px solid #2a2630;
+  box-shadow:
+    inset 0 0 20px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(95, 255, 176, 0.06),
+    0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* The screen area — inner glow */
+.crt-screen {
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(95, 255, 176, 0.03) 0%,
+      transparent 70%
+    ),
+    var(--background);
+}
+
+/* RGB fringe / chromatic aberration on hover */
+@keyframes crt-rgb-shift {
+  0%,
+  100% {
+    text-shadow:
+      0 0 4px rgba(95, 255, 176, 0.4),
+      0 0 8px rgba(95, 255, 176, 0.15);
+  }
+  25% {
+    text-shadow:
+      -1px 0 rgba(255, 107, 107, 0.3),
+      1px 0 rgba(95, 255, 176, 0.3),
+      0 0 4px rgba(95, 255, 176, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 4px rgba(95, 255, 176, 0.4),
+      0 0 8px rgba(95, 255, 176, 0.15);
+  }
+  75% {
+    text-shadow:
+      1px 0 rgba(212, 192, 240, 0.3),
+      -1px 0 rgba(95, 255, 176, 0.3),
+      0 0 4px rgba(95, 255, 176, 0.4);
+  }
+}
+
+/* Glitch line that sweeps down the screen */
+@keyframes crt-glitch-line {
+  0% {
+    top: -2px;
+  }
+  100% {
+    top: calc(100% + 2px);
+  }
+}
+
+.crt-glitch-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(95, 255, 176, 0.08);
+  z-index: 12;
+  animation: crt-glitch-line 6s linear infinite;
+}
+
+/* LED power indicator */
+@keyframes led-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 3px rgba(95, 255, 176, 0.8),
+      0 0 6px rgba(95, 255, 176, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 5px rgba(95, 255, 176, 1),
+      0 0 10px rgba(95, 255, 176, 0.6);
+  }
+}
+
+.crt-led {
+  width: 5px;
+  height: 5px;
+  background: var(--terminal-green);
+  animation: led-pulse 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.mascot-glow {
+  filter: drop-shadow(0 0 15px rgba(95, 255, 176, 0.3));
+}
